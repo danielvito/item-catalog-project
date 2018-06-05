@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ _('item_catalog_project') }}</title>
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='css/responsive.css') }}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <div class="header__container">
+          <div class="header__container__title">
+            <h1 class="header__container__title_text">
+              <a href= "{{ url_for('show_categories') }}"></a>{{ _('item_catalog_project') }}</a>
+            </h1>
+            <h3 class="header__container__title_text">
+              {{ _('udacity_nanodegree_web_full_stack_developer') }}
+            </h3>
+          </div>
+          <div class="header__container__user">
+            {% if session['username'] %}
+              {{session['username']}}
+              <button type="button" id="btn_logout">{{ _('logout') }}</button>
+            {% else %}
+              <button type="button" id="btn_login">{{ _('login') }}</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav id="menu" class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/">{{_('catalog_nav')}}</a></li>
+        <li class="nav__item"><a href="{{ url_for('catagoryItemsJSON') }}">{{_('catalog_json')}}</a></li>
+
+        {% for language in languages %}
+        <li class="nav__item"><a href="{{ url_for('set_site_language', language=language) }}"> {{ languages[language] }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <main>
+      <div id="messages" class="content_messages">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+      </div>
+      <div class="content__container">
+        {% block content %}{% endblock %}
+      </div>
+      <footer>
+        <div class="footer__container">
+          <div class="footer__inner"><a href="https://www.linkedin.com/in/daniel-de-vito-silveira-17829025/" target="_blank">LinkedIn</a></div>
+          <div class="footer__inner"><a href="https://twitter.com/ddvitos" target="_blank">Twitter</a></div>
+          <div class="footer__inner"><a href="mailto:daniel_vito@yahoo.com.br" target="_blank">{{ _('contact_me') }}</a></div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
