@@ -17,7 +17,7 @@ In order to run this project you need python 3.x installed.
 
 ```sh
 git clone https://github.com/danielvito/item-catalog-project.git
-cd [item-catalog-project
+cd item-catalog-project
 ```
 
 Open url <http://localhost:5000/> with a web browser.
