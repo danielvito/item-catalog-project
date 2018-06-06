@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from flask import Flask, request, render_template, g
 from config import Config
 from flask_sqlalchemy import SQLAlchemy

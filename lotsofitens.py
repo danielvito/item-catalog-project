@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from app import db
 from app.models import User, Category, CategoryItem, Brand
 

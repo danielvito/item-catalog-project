@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from app import db, ma
 from datetime import datetime
 from sqlalchemy import asc
@@ -5,6 +7,7 @@ from marshmallow import Schema, fields
 
 
 class User(db.Model):
+    """ User model """
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
@@ -31,6 +34,7 @@ class User(db.Model):
 
 
 class Brand(db.Model):
+    """ Brand model """
     __tablename__ = 'brand'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
@@ -46,6 +50,7 @@ class Brand(db.Model):
 
 
 class Category(db.Model):
+    """ Category model """
     __tablename__ = 'category'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
@@ -63,6 +68,7 @@ class Category(db.Model):
 
 
 class CategoryItem(db.Model):
+    """ Category Item model """
     __tablename__ = 'category_item'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
@@ -88,22 +94,35 @@ class CategoryItem(db.Model):
     def by_id(id):
         return CategoryItem.query.filter_by(id=id).one_or_none()
 
+    def count_by_category(category_id):
+        return CategoryItem.query.filter_by(category_id=category_id).count()
+
 
 class CategorySchema(ma.ModelSchema):
+    """ Category schema used to generate formatted JSON """
     items = fields.Nested('CategoryItemSchema', many=True,
-                          exclude=('category', 'user', ))
+                          exclude=('category', ))
 
     class Meta:
         model = Category
 
 
 class CategoryItemSchema(ma.ModelSchema):
+    """ Category item schema used to generate formatted JSON """
     brand = fields.Nested('BrandSchema')
+    user = fields.Nested('UserSchema')
 
     class Meta:
         model = CategoryItem
 
 
 class BrandSchema(ma.ModelSchema):
+    """ Brand schema used to generate formatted JSON """
     class Meta:
         model = Brand
+
+
+class UserSchema(ma.ModelSchema):
+    """ User schema used to generate formatted JSON """
+    class Meta:
+        model = User

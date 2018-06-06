@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from app import app
 from app import babel
 from app import db
@@ -32,7 +34,7 @@ def get_locale():
 @app.context_processor
 def inject_language():
     LANG_NAMES = {'en': _('english'), 'pt_br': _('portuguese')}
-    return dict(languages=LANG_NAMES)
+    return dict(languages=LANG_NAMES, cur_lang=login_session['language'])
 
 
 @app.route('/language/<string:language>')
@@ -60,8 +62,14 @@ def login_required(function_to_protect):
 def show_categories(category_id=None):
     categories = Category.list_categories()
     items = CategoryItem.list_category_items_by_category(category_id)
+
+    cat_count = {}
+    for category in categories:
+        cat_count[category.id] = CategoryItem.count_by_category(category.id)
+
     return render_template('categories.html', categories=categories,
-                           items=items, selected_category_id=category_id)
+                           items=items, cat_count=cat_count,
+                           selected_category_id=category_id)
 
 
 @app.route('/catalog/item/<int:categoryitem_id>', methods=['GET', 'POST'])
@@ -89,7 +97,11 @@ def show_categoryitem_delete(categoryitem_id=None):
 
 def manage_categoryitem(categoryitem_id=None, type_op=1):
     """
-    # 1 -> read, 2 -> new, 3 -> update, 4 -> delete
+    Manage category item CRUD
+
+    Args:
+        param1: category item id
+        param2: operation type (1 -> read, 2 -> new, 3 -> update, 4 -> delete)
     """
     item = CategoryItem.by_id(categoryitem_id)
 

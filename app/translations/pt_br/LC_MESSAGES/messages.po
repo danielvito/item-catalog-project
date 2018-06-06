@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-04 23:17-0300\n"
+"POT-Creation-Date: 2018-06-05 22:25-0300\n"
 "PO-Revision-Date: 2018-05-27 14:19-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt_BR\n"
@@ -50,63 +50,63 @@ msgstr "Português"
 msgid "please_login"
 msgstr "Por favor faça o login"
 
-#: app/routes.py:97 app/templates/categories.html:20
+#: app/routes.py:103 app/templates/categories.html:24
 msgid "no_found_rows"
 msgstr "Nenhum registro encontrado"
 
-#: app/routes.py:102
+#: app/routes.py:108
 msgid "item_deleted_successfully"
 msgstr "Item apagado com sucesso"
 
-#: app/routes.py:124
+#: app/routes.py:130
 msgid "item_updated_successfully"
 msgstr "Item atualizado com sucesso"
 
-#: app/routes.py:132
+#: app/routes.py:138
 msgid "item_added_successfully"
 msgstr "Item adicionado com sucesso"
 
-#: app/routes.py:171
+#: app/routes.py:177
 msgid "invalid_state_parameter"
 msgstr "Parâmetro state inválido"
 
-#: app/routes.py:182
+#: app/routes.py:188
 msgid "failed_to_upgrade_the_authorization_code"
 msgstr "Falha ao atualizar o código de autorização"
 
-#: app/routes.py:198
+#: app/routes.py:204
 msgid "tokens_user_id_doesnt_match_given_user_id"
 msgstr "Token do usuário não é igual ao id do usuário"
 
-#: app/routes.py:202
+#: app/routes.py:208
 msgid "tokens_client_id_does_not_match_apps"
 msgstr "Id do token não é igual ao app"
 
-#: app/routes.py:214
+#: app/routes.py:220
 msgid "invalid_user"
 msgstr "Usuário inválido"
 
-#: app/routes.py:230
+#: app/routes.py:236
 msgid "current_user_not_connected"
 msgstr "Usuário não conectado"
 
-#: app/routes.py:251
+#: app/routes.py:257
 msgid "failed_to_revoke_token_for_given_user"
 msgstr "Falha ao desabilitar token do usuário"
 
-#: app/templates/categories.html:6
+#: app/templates/categories.html:7
 msgid "categories"
 msgstr "Categorias"
 
-#: app/templates/categories.html:16
+#: app/templates/categories.html:20
 msgid "items"
 msgstr "Itens"
 
-#: app/templates/categories.html:18
+#: app/templates/categories.html:22
 msgid "select_one_category"
 msgstr "Selecione uma categoria"
 
-#: app/templates/categories.html:32
+#: app/templates/categories.html:35
 msgid "add_categoryitem"
 msgstr "Novo Item"
 
@@ -118,11 +118,11 @@ msgstr "Usuário"
 msgid "created"
 msgstr "Criação"
 
-#: app/templates/categoryitem.html:17
+#: app/templates/categoryitem.html:18
 msgid "edit_item"
 msgstr "Editar item"
 
-#: app/templates/categoryitem.html:18
+#: app/templates/categoryitem.html:19
 msgid "delete_item"
 msgstr "Apagar item"
 
@@ -134,7 +134,7 @@ msgstr "Salvar"
 msgid "invalid_option"
 msgstr "Opção inválida"
 
-#: app/templates/login.html:5 app/templates/main.html:30
+#: app/templates/login.html:5 app/templates/main.html:47
 msgid "login"
 msgstr "Entrar"
 
@@ -150,29 +150,30 @@ msgstr "Falha de aplicação"
 msgid "welcome"
 msgstr "Bem-vindo"
 
-#: app/templates/main.html:7 app/templates/main.html:19
+#: app/templates/main.html:7 app/templates/main.html:15
+#: app/templates/main.html:74
 msgid "item_catalog_project"
 msgstr "Projeto Item de Catálogo"
 
-#: app/templates/main.html:22
-msgid "udacity_nanodegree_web_full_stack_developer"
-msgstr "Udacity Programa Nanodegree Desenvolvedor Web Full Stack"
-
-#: app/templates/main.html:28
-msgid "logout"
-msgstr "Sair"
-
-#: app/templates/main.html:38
+#: app/templates/main.html:23
 msgid "catalog_nav"
 msgstr "Navegar no Catálogo"
 
-#: app/templates/main.html:39
+#: app/templates/main.html:26
 msgid "catalog_json"
 msgstr "Catálogo JSON"
 
-#: app/templates/main.html:65
+#: app/templates/main.html:29
+msgid "language"
+msgstr "Idioma"
+
+#: app/templates/main.html:40
 msgid "contact_me"
 msgstr "Contato"
+
+#: app/templates/main.html:45
+msgid "logout"
+msgstr "Sair"
 
 #: app/templates/errors/404.html:4
 msgid "file_not_found"
@@ -192,4 +193,7 @@ msgstr "O administrador foi notificado. Desculpe pelo inconveniente!"
 
 #~ msgid "new_category"
 #~ msgstr "Nova Categoria"
+
+#~ msgid "udacity_nanodegree_web_full_stack_developer"
+#~ msgstr "Udacity Programa Nanodegree Desenvolvedor Web Full Stack"
 
