@@ -15,12 +15,23 @@ Code is neatly formatted and follows the Python [PEP-8 Guidelines](http://pep8on
 
 In order to run this project you need python 3.x installed.
 
+### Project Extensions
+
+```sh
+pip3 install Flask
+pip3 install Flask-Babel
+pip3 install flask-sqlalchemy
+pip3 install flask-marshmallow
+pip3 install -U flask-sqlalchemy marshmallow-sqlalchemy
+pip3 install Flask-WTF
+pip3 install Flask-OAuthlib
+pip3 install --upgrade oauth2client
+```
+
 ```sh
 git clone https://github.com/danielvito/item-catalog-project.git
 cd item-catalog-project
 ```
-
-Open url <http://localhost:5000/> with a web browser.
 
 ### Database
 
@@ -35,20 +46,28 @@ python lotsofitens.py
 ### Running the application in dev mode on Linux
 
 ```sh
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
 export FLASK_DEBUG=1
 export FLASK_ENV=development
 export FLASK_APP=project.py
-flask run
+flask run --host=0.0.0.0 --port=5000
 ```
+
+Open url <http://localhost:5000/> with a web browser.
 
 ### Running the application in dev mode on Windows (Power Shell)
 
 ```sh
+$env:LC_ALL='C.UTF-8'
+$env:LANG='C.UTF-8'
 $env:FLASK_DEBUG=1
 $env:FLASK_ENV='development'
 $env:FLASK_APP='project.py'
-flask run
+flask run --host=0.0.0.0 --port=5000
 ```
+
+Open url <http://localhost:5000/> with a web browser.
 
 ### Running the application in shell mode
 
