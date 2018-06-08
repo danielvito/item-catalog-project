@@ -38,7 +38,7 @@ cd item-catalog-project
 You can change the file lotsofitens.py and execute it if you want to recreate a initial database file.
 
 ```sh
-cd item-catalog-project/database_setup/
+cd item-catalog-project/
 python lotsofitens.py
 # generate the ./catalog.db file
 ```
